@@ -11,6 +11,12 @@ public class main {
         System.out.println(ConstroiSuperRapido.getCorretor().getNome());
         System.out.println(ConstroiSuperRapido.getCorretor2().getNome());
 
-        System.out.println(ConstroiSuperRapido.getCorretor().getVendasEfetuadas());
+        ConstroiSuperRapido.setCnpj("01270730000175");
+        System.out.println(ConstroiSuperRapido.getCnpj());
+
+        Endereco endereco = new Endereco("12394876", 12039487);
+
+        ConstroiSuperRapido.setEndereco(endereco);
+        System.out.println(ConstroiSuperRapido.getEndereco().getNumero());
     }
 }

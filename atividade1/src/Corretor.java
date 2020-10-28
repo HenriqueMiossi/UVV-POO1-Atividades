@@ -2,8 +2,10 @@ public class Corretor {
 
     private String nome;
     private String matricula;
-    private Double metaMensal;
-    private static Integer totalVendasEfetuadas = 0;
+    private Double metaMensal = 10000.0;
+    private static Double vendasCorretor1 = 0.0;
+    private static Double vendasCorretor2 = 0.0;
+    private static Double totalVendas = 0.0;
     private String endereco;
 
     public Corretor(String matricula, String nome) {
@@ -32,11 +34,20 @@ public class Corretor {
         this.metaMensal = metaMensal;
     }
 
-    public Integer getVendasEfetuadas() {
-        return totalVendasEfetuadas;
+    public Double getVendasTotais() {
+        return vendasCorretor1 + vendasCorretor2;
     }
-    public void incrementaVendasEfetuadas() {
-        totalVendasEfetuadas++;
+    public void vendaCorretor1() {
+        vendasCorretor1 += metaMensal;
+    }
+    public Double getVendasCorretor1() {
+        return vendasCorretor1;
+    }
+    public Double getVendasCorretor2() {
+        return vendasCorretor2;
+    }
+    public void vendaCorretor2() {
+        vendasCorretor2 += metaMensal;
     }
 
     public String getEndereco() {

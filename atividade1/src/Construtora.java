@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 public class Construtora {
 
     private String cnpj;
@@ -14,7 +16,9 @@ public class Construtora {
         return cnpj;
     }
     public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+        if(ValidaCnpj.isCNPJ(cnpj) == true) {
+            this.cnpj = cnpj;
+        }
     }
 
     public Endereco getEndereco() {
@@ -34,6 +38,5 @@ public class Construtora {
         this.corretor = corretor;
         this.corretor2 = corretor2;
     }
-
 
 }
