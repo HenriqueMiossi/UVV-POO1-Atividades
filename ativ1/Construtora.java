@@ -3,8 +3,9 @@ public class Construtora {
     private String cnpj;
     private Endereco endereco;
     private Corretor corretor;
+    private Corretor corretor2;
 
-    public Construtora(String cnpj, Endereco endereco) {
+    public Construtora(String cnpj) {
         setCnpj(cnpj);
         setEndereco(endereco);
     }
@@ -26,7 +27,13 @@ public class Construtora {
     public Corretor getCorretor() {
         return corretor;
     }
-    public void setCorretor(Corretor corretor) {
-        this.corretor = corretor;
+    public Corretor getCorretor2() {
+        return corretor2;
     }
+    public void setCorretor(Corretor corretor, Corretor corretor2) {
+        this.corretor = corretor;
+        this.corretor2 = corretor2;
+    }
+
+
 }
