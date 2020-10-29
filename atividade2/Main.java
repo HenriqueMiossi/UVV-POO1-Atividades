@@ -7,10 +7,10 @@ public class Main {
         int mesesAtraso = dialogBox.leInt("Insira a quantidade de meses em atraso");
 
         Imovel casa = new Imovel(proprietario, mesesAtraso);
-        
-        System.out.println(casa.getMesesAtraso());
-        casa.setImposto(20);
-        System.out.println(casa.getImposto());
+        casa.setImposto(mesesAtraso);
 
+
+        dialogBox.MsgDeInformacao("Meses em atraso", proprietario + " possui " + mesesAtraso +
+                " meses em atraso, contabilizando " + casa.getImposto() + "% de multa");
     }
 }

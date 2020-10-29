@@ -19,9 +19,9 @@ public class main {
         ConstroiSuperRapido.getCorretor().vendaCorretor();
         ConstroiSuperRapido.getCorretor2().vendaCorretor();
 
-        System.out.println(ConstroiSuperRapido.getCorretor().getVendasCorretor());
-        System.out.println(ConstroiSuperRapido.getCorretor2().getVendasCorretor());
 
-        System.out.println(ConstroiSuperRapido.getCorretor().getVendasTotais());
+
+        dialogBox.MsgDeInformacao("Total de Vendas", "O total de vendas da empresa foi de R$" +
+                ConstroiSuperRapido.getCorretor().getVendasTotais());
     }
 }
