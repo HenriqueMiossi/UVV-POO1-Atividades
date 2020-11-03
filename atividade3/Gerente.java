@@ -2,7 +2,7 @@ public class Gerente extends Funcionario {
 
     private String senha;
 
-    public Gerente(String _senha) {
+    public void setSenha(String _senha) {
         this.senha = _senha;
     }
 

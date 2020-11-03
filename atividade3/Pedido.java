@@ -8,6 +8,8 @@ public class Pedido {
     private static double valorTotalCalculado;
     public List<String> valores = new ArrayList<>();
 
+    InOut dialogo = new InOut();
+
     public int getPedidoId() {
         return pedidoId;
     }
@@ -32,19 +34,32 @@ public class Pedido {
         valorTotalCalculado += item.getPrecoUnitario() * item.getQuantidade();
         return item.getPrecoUnitario() * item.getQuantidade();
     }
-    public void removerItemPedido(double item) {
-        valorTotalCalculado -= item;
+
+    public void removerItemPedido(String nome, double valorRemovido) {
+
+        if(valores.contains(nome)) {
+
+            valores.remove(nome);
+            int posicao = valores.indexOf(nome);
+            valorTotalCalculado -= valorRemovido;
+
+        }
+
     }
 
     public void atualizaLista(String nome) {
         valores.add(nome);
     }
-
-    public List<String> getLista() {
-        return valores;
+    public void removeDaLista(String nome) {
+        valores.remove(nome);
     }
 
-    public double getValorTotalCalculado() {
+    public void buscarItemPedido() {
+        String itens = valores.toString();
+        dialogo.MsgDeInformacao("Valores", "Os itens do pedido são: " + itens);
+    }
+
+    public double calcularValorTotal() {
         return this.valorTotalCalculado;
     }
 
