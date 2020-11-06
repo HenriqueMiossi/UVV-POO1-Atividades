@@ -292,21 +292,5 @@ public class InOut {
 		JOptionPane.showMessageDialog(null, frase, cabecalho, 
 				  					  JOptionPane.WARNING_MESSAGE);
 	}
-	
-	
-	public static void main(String [] args){
-		
-		
-		String nome = leString("Digite o seu nome: ");
-		int idade = leInt("Digite a sua idade: ");
-		
-		
-		MsgDeInformacao("MsgDeInformacao", nome + " tem " + idade + " anos." );
-		MsgSemIcone("MsgSemIcone", nome + " tem " + idade + " anos." );
-		MsgDeAviso("MsgDeAviso", nome + " tem " + idade + " anos." );
-		
-		
-	}
 
-    
 }
