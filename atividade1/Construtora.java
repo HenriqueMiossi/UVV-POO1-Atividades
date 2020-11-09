@@ -7,11 +7,9 @@ public class Construtora {
 
     /**
      * Construtor da classe Construtora
-     *
-     * @param cnpj  recebe o CNPJ da construtora
      */
-    public Construtora(String cnpj) {
-        setCnpj(cnpj);
+    public Construtora() {
+
     }
 
     /**
