@@ -2,7 +2,7 @@ public class Corretor {
 
     private String nome;
     private String matricula;
-    private Double metaMensal = 10000.0;
+    private Double metaMensal = 1000.0;
     private Double vendasCorretor = 0.0;
     private static Double totalVendas = 0.0;
     private Endereco endereco;

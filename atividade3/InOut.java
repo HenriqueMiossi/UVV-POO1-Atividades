@@ -54,7 +54,7 @@ public class InOut {
 				ERRO = false;
 			}
 			catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM N�MERO DO TIPO " +
+				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM NÚMERO DO TIPO " +
 											  "BYTE", "   >>>      ERRO     <<<", 
 											  JOptionPane.ERROR_MESSAGE);
 				ERRO = true;
@@ -86,7 +86,7 @@ public class InOut {
 				ERRO = false;
 			}
 			catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM N�MERO DO TIPO " +
+				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM NÚMERO DO TIPO " +
 											  "SHORT", "   >>>      ERRO     <<<", 
 											  JOptionPane.ERROR_MESSAGE);
 				ERRO = true;
@@ -118,7 +118,7 @@ public class InOut {
 				ERRO = false;
 			}
 			catch(Exception e){
-				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM N�MERO DO TIPO " +
+				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM NÚMERO DO TIPO " +
 											  "INTEIRO ", "   >>>      ERRO     <<<", 
 											  JOptionPane.ERROR_MESSAGE);
 				ERRO = true;
@@ -150,7 +150,7 @@ public class InOut {
 				ERRO = false;
 			}
 			catch(Exception e){
-				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM N�MERO DO TIPO " +
+				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM NÚMERO DO TIPO " +
 											  "LONG ", "   >>>      ERRO     <<<", 
 											  JOptionPane.ERROR_MESSAGE);
 				ERRO = true;
@@ -182,7 +182,7 @@ public class InOut {
 				ERRO = false;
 			}
 			catch(Exception e){
-				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM N�MERO DO TIPO " +
+				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM NÚMERO DO TIPO " +
  											  "FLOAT", "   >>>      ERRO     <<<", 
 											  JOptionPane.ERROR_MESSAGE);
 				ERRO = true;
@@ -214,7 +214,7 @@ public class InOut {
 				ERRO = false;
 			}
 			catch(Exception e){
-				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM N�MERO DO TIPO " +
+				JOptionPane.showMessageDialog(null, "VALOR DEVE SER UM NÚMERO DO TIPO " +
 											  "DOUBLE", "   >>>      ERRO     <<<", 
 											  JOptionPane.ERROR_MESSAGE);
 				ERRO = true;
