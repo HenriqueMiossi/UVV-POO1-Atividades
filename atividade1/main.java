@@ -3,8 +3,22 @@ public class Main {
 
         InOut dialogBox = new InOut();
 
-        String cnpj = dialogBox.leString("Insira o CNPJ da empresa");
-        Construtora ConstroiSuperRapido = new Construtora(cnpj);
+        while(true) {
+
+            String cnpj = dialogBox.leString("Insira o CNPJ da empresa");
+            Construtora ConstroiSuperRapido = new Construtora(cnpj);
+
+
+            if(ConstroiSuperRapido.getCnpj() == cnpj) {
+
+                break
+
+            } else {
+
+                dialogBox.MsgDeErro("O CNPJ inserido é inválido")
+
+            }
+        }
 
         while(true) {
 
