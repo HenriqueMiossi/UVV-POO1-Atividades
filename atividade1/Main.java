@@ -1,20 +1,17 @@
 public class Main {
     public static void main(String[] args) {
 
-        InOut dialogBox = new InOut();
-
-
         Construtora ConstroiSuperRapido = new Construtora();
 
         while(true) {
 
-            String cnpj = dialogBox.leString("Insira o CNPJ da empresa");
-            if(ValidaCnpj.isCNPJ(cnpj) == true) {
+            String cnpj = InOut.leString("Insira o CNPJ da empresa");
+            if(ValidaCnpj.isCNPJ(cnpj)) {
                 ConstroiSuperRapido.setCnpj(cnpj);
                 break;
             } else {
 
-                dialogBox.MsgDeErro("Erro", "O CNPJ inserido é inválido");
+                InOut.MsgDeErro("Erro", "O CNPJ inserido é inválido");
 
             }
 
@@ -22,8 +19,8 @@ public class Main {
 
         while(true) {
 
-            int escolha = dialogBox.leInt("Insira sua opção:" +
-                    "\n1 - Inserir corretores \n2 - Configurar meta mensal \n3 - Configurar vendas" +
+            int escolha = InOut.leInt("Insira sua opção:" +
+                    "\n1 - Inserir corretores \n2 - Modificar meta mensal \n3 - Aplicar venda" +
                     "\n4 - Obter o total de vendas da empresa \n0 - Sair do programa");
 
             if(escolha == 0) {
@@ -32,12 +29,12 @@ public class Main {
 
             } else if(escolha == 1) {
 
-                String matricula = dialogBox.leString("Insira a matrícula do primeiro corretor");
-                String nome = dialogBox.leString("Insira o nome do primeiro corretor");
+                String matricula = InOut.leString("Insira a matrícula do primeiro corretor");
+                String nome = InOut.leString("Insira o nome do primeiro corretor");
                 Corretor corretor1 = new Corretor(matricula, nome);
 
-                String matricula2 = dialogBox.leString("Insira a matrícula do segundo corretor");
-                String nome2 = dialogBox.leString("Insira o nome do segundo corretor");
+                String matricula2 = InOut.leString("Insira a matrícula do segundo corretor");
+                String nome2 = InOut.leString("Insira o nome do segundo corretor");
                 Corretor corretor2 = new Corretor(matricula2, nome2);
 
                 ConstroiSuperRapido.setCorretor(corretor1, corretor2);
@@ -46,27 +43,27 @@ public class Main {
 
                 try {
 
-                    int corretor = dialogBox.leInt("Qual corretor receberá uma nova meta mensal?");
+                    int corretor = InOut.leInt("Qual corretor receberá uma nova meta mensal?");
 
                     if (corretor == 1) {
 
-                        double meta = dialogBox.leDouble("Insira a nova meta mensal em R$");
+                        double meta = InOut.leDouble("Insira a nova meta mensal em R$");
                         ConstroiSuperRapido.getCorretor().setMetaMensal(meta);
 
                     } else if (corretor == 2) {
 
-                        double meta = dialogBox.leDouble("Insira a nova meta mensal em R$");
+                        double meta = InOut.leDouble("Insira a nova meta mensal em R$");
                         ConstroiSuperRapido.getCorretor2().setMetaMensal(meta);
 
                     } else {
 
-                        dialogBox.MsgDeAviso("Erro", "Não foi encontrado esse corretor, tente novamente");
+                        InOut.MsgDeAviso("Erro", "Não foi encontrado esse corretor, tente novamente");
 
                     }
 
                 } catch (Exception e) {
 
-                    dialogBox.MsgDeAviso("Aviso", "Houve um erro ao configurar a meta mensal," +
+                    InOut.MsgDeAviso("Aviso", "Houve um erro ao configurar a meta mensal," +
                             " os corretores foram devidamente criados?");
 
                 }
@@ -74,7 +71,7 @@ public class Main {
 
             } else if(escolha == 3) {
 
-                int corretor = dialogBox.leInt("Qual corretor fez a venda? ");
+                int corretor = InOut.leInt("Qual corretor fez a venda? ");
 
                 try {
 
@@ -88,13 +85,13 @@ public class Main {
 
                     } else {
 
-                        dialogBox.MsgDeAviso("Erro", "Não foi encontrado esse corretor, tente novamente");
+                        InOut.MsgDeAviso("Erro", "Não foi encontrado esse corretor, tente novamente");
 
                     }
 
                 } catch (Exception e) {
 
-                    dialogBox.MsgDeAviso("Alerta", "Houve um erro ao selecionar o corretor." +
+                    InOut.MsgDeAviso("Alerta", "Houve um erro ao selecionar o corretor." +
                             " Os corretores foram devidamente criados?");
 
                 }
@@ -104,12 +101,12 @@ public class Main {
 
                 try {
 
-                    dialogBox.MsgDeInformacao("Total de vendas", "O total de vendas da empresa foi" +
+                    InOut.MsgDeInformacao("Total de vendas", "O total de vendas da empresa foi" +
                             " R$" + ConstroiSuperRapido.getCorretor().getVendasTotais());
 
                 } catch (Exception e) {
 
-                    dialogBox.MsgDeAviso("Alerta", "Não houveram vendas");
+                    InOut.MsgDeAviso("Alerta", "Não houveram vendas");
 
                 }
 

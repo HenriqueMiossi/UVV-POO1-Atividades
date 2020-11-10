@@ -11,16 +11,11 @@ public class Loja {
      */
     public static void menu() {
 
-        InOut dialogo = new InOut();
-
-        dialogo.MsgDeInformacao("Menu", "Bem vindo ao sistema de pedidos.");
+        InOut.MsgDeInformacao("Menu", "Bem vindo ao sistema de pedidos.");
         while (true) {
-            int escolha = dialogo.leInt("Qual sua opção? \n1 - Cadastrar pedido \n" +
+            int escolha = InOut.leInt("Qual sua opção? \n1 - Cadastrar pedido \n" +
                     "2 - Remover pedido \n3 - Mostrar lista de pedidos \n0 - Sair do programa");
 
-            /**
-             * Direciona o usuário pelos pedidos
-             */
             if(escolha == 0) {
 
                 break;
@@ -39,7 +34,7 @@ public class Loja {
 
             } else {
 
-                dialogo.MsgDeAviso("Erro", "Escolha inválida, tente novamente");
+                InOut.MsgDeAviso("Erro", "Escolha inválida, tente novamente");
 
             }
         }
@@ -54,20 +49,15 @@ public class Loja {
      */
     public static void inserirPedido(int _indice) {
 
-        InOut dialogo = new InOut();
-
         indice += 1;
-        String data = dialogo.leString("Insira a data do pedido");
+        String data = InOut.leString("Insira a data do pedido");
         Pedido pedido = new Pedido(indice * 100, data);
         lista.add(String.valueOf(indice));
 
-        /**
-         * Menu do pedido, que guia o usuário na manipulação dos itens do pedido
-         */
         while(true) {
 
             // Mostra as opções do usuário
-            int escolha = dialogo.leInt("Qual sua escolha? \n1 - Inserir item" +
+            int escolha = InOut.leInt("Qual sua escolha? \n1 - Inserir item" +
                     "\n2 - Remover item \n3 - Buscar itens \n4 - Calcular preço total \n" +
                     "5 - Calcular desconto \n0 - Concluir pedido");
 
@@ -79,18 +69,18 @@ public class Loja {
             // Insere um item no pedido
             if (escolha == 1) {
 
-                String nome = dialogo.leString("Qual o nome do item?");
-                int quantidade = dialogo.leInt("Qual a quantidade?");
-                double preco = dialogo.leDouble("Qual o preço do item?");
+                String nome = InOut.leString("Qual o nome do item?");
+                int quantidade = InOut.leInt("Qual a quantidade?");
+                double preco = InOut.leDouble("Qual o preço do item?");
                 double item = pedido.inserirItemPedido(nome, quantidade, preco);
                 pedido.atualizaLista(nome);
 
                 // Remove um item do pedido
             } else if (escolha == 2) {
 
-                String nome = dialogo.leString("Qual objeto será removido?");
-                int quantidade = dialogo.leInt("Qual era a quantidade total dos itens?");
-                double preco = dialogo.leInt("Qual era o preço original dos itens?");
+                String nome = InOut.leString("Qual objeto será removido?");
+                int quantidade = InOut.leInt("Qual era a quantidade total dos itens?");
+                double preco = InOut.leInt("Qual era o preço original dos itens?");
                 pedido.removerItemPedido(nome, quantidade * preco);
 
                 // Mostra os itens atualmente no pedido
@@ -102,12 +92,12 @@ public class Loja {
             } else if (escolha == 4) {
 
                 double valor = pedido.calcularValorTotal();
-                dialogo.MsgDeInformacao("Valor total", String.valueOf(valor));
+                InOut.MsgDeInformacao("Valor total", String.valueOf(valor));
 
                 // Faz o cálculo do desconto do funcionário
             } else if (escolha == 5) {
 
-                int tipoFuncionario = dialogo.leInt("Que tipo de funcionário receberá o desconto? " +
+                int tipoFuncionario = InOut.leInt("Que tipo de funcionário receberá o desconto? " +
                         "\n1 - Gerente \n2 - Estagiário");
 
                 if(tipoFuncionario == 1) {
@@ -115,25 +105,25 @@ public class Loja {
                     // Calcula o desconto de Gerente
                     Gerente gerente = new Gerente();
                     double valor = gerente.calcularDesconto(pedido.calcularValorTotal());
-                    dialogo.MsgDeInformacao("Desconto", "O valor descontado foi de: " + Math.round(valor));
+                    InOut.MsgDeInformacao("Desconto", "O valor descontado foi de: " + Math.round(valor));
 
                 } else if(tipoFuncionario == 2) {
 
                     // Calcula o desconto de Estagiário
                     Estagiario estagiario = new Estagiario();
                     double valor = estagiario.calcularDesconto(pedido.calcularValorTotal());
-                    dialogo.MsgDeInformacao("Desconto", "O valor descontado foi de: " + Math.round(valor));
+                    InOut.MsgDeInformacao("Desconto", "O valor descontado foi de: " + Math.round(valor));
 
                 } else {
 
                     // Alerta para valores inválidos
-                    dialogo.MsgDeAviso("Aviso", "Tipo de funcionário inválido");
+                    InOut.MsgDeAviso("Aviso", "Tipo de funcionário inválido");
 
                 }
 
             } else {
 
-                dialogo.MsgDeAviso("Aviso", "Escolha inválida, tente novamente");
+                InOut.MsgDeAviso("Aviso", "Escolha inválida, tente novamente");
 
             }
 
@@ -145,9 +135,7 @@ public class Loja {
      */
     public static void removerPedido() {
 
-        InOut dialogo = new InOut();
-
-        int escolha = dialogo.leInt("Digite a posição do pedido a ser retirado:\n" + lista.toString());
+        int escolha = InOut.leInt("Digite a posição do pedido a ser retirado:\n" + lista.toString());
 
         try {
 
@@ -155,10 +143,9 @@ public class Loja {
 
         } catch (Exception e) {
 
-            dialogo.MsgDeAviso("Erro", "Não há valores na posição " + escolha + ". ");
+            InOut.MsgDeAviso("Erro", "Não há valores na posição " + escolha + ". ");
 
         }
-
 
     }
 
@@ -167,9 +154,7 @@ public class Loja {
      */
     public static void buscarPedido() {
 
-        InOut dialogo = new InOut();
-
-        dialogo.MsgDeInformacao("Itens", lista.toString());
+        InOut.MsgDeInformacao("Itens", lista.toString());
 
     }
 

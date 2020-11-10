@@ -3,7 +3,6 @@ public class Imovel {
     private String nomeProprietario;
     private double imposto;
     private int mesesAtraso;
-    private static double impostoTotal;
 
     /**
      * Este construtor foi criado para configurar automaticamente
@@ -59,6 +58,7 @@ public class Imovel {
      *                      do imposto
      */
     public void setImposto(int mesesAtraso) {
+
         if(mesesAtraso > 0 & mesesAtraso < 6) {
 
             this.imposto = 1;
@@ -80,6 +80,7 @@ public class Imovel {
             this.imposto = 10;
 
         }
+
     }
 
     /**

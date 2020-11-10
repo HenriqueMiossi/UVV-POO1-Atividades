@@ -29,7 +29,7 @@ public class Construtora {
      * @param cnpj recebe o valor do CNPJ para analisar
      */
     public void setCnpj(String cnpj) {
-        if(ValidaCnpj.isCNPJ(cnpj) == true) {
+        if(ValidaCnpj.isCNPJ(cnpj)) {
             this.cnpj = cnpj;
         }
     }

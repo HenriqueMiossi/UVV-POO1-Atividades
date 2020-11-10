@@ -4,9 +4,9 @@ import java.util.List;
 public class Pedido {
 
     private int pedidoId;
-    private String dataEmissão;
+    private String dataEmissao;
     private static double valorTotalCalculado;
-    public List<String> valores = new ArrayList<>();
+    private List<String> valores = new ArrayList<>();
 
     InOut dialogo = new InOut();
 
@@ -33,17 +33,19 @@ public class Pedido {
      *
      * @return retorna a data de emissão do pedido
      */
-    public String getDataEmissão() {
-        return dataEmissão;
+    public String getDataEmissao() {
+        return dataEmissao;
     }
 
     /**
      * Setter da data de emissão
      *
-     * @param dataEmissão recebe a data de emissão
+     * @param dataEmissao recebe a data de emissão
      */
-    public void setDataEmissão(String dataEmissão) {
-        this.dataEmissão = dataEmissão;
+    public void setDataEmissao(String dataEmissao) {
+
+        this.dataEmissao = dataEmissao;
+
     }
 
     /**
@@ -54,8 +56,10 @@ public class Pedido {
      * @param _data recebe a data de emissão do pedido
      */
     public Pedido(int _id, String _data) {
-        setDataEmissão(_data);
+
+        setDataEmissao(_data);
         setPedidoId(_id);
+
     }
 
     /**
@@ -82,8 +86,8 @@ public class Pedido {
      * pedido o nome desse item e desconta do valor total o
      * preço desses itens
      *
-     * @param nome
-     * @param valorRemovido
+     * @param nome recebe o nome do item a ser removido
+     * @param valorRemovido recebe o valor total dos itens a serem removidos
      */
     public void removerItemPedido(String nome, double valorRemovido) {
 
@@ -103,7 +107,9 @@ public class Pedido {
      * @param nome recebe o nome do item que entrará na lista
      */
     public void atualizaLista(String nome) {
+
         valores.add(nome);
+
     }
 
     /**
@@ -113,15 +119,19 @@ public class Pedido {
      * @param nome recebe o nome do item que sairá da lista
      */
     public void removeDaLista(String nome) {
+
         valores.remove(nome);
+
     }
 
     /**
      * Função que mostra os valores contidos na lista de itens
      */
     public void buscarItemPedido() {
+
         String itens = valores.toString();
-        dialogo.MsgDeInformacao("Valores", "Os itens do pedido são: " + itens);
+        InOut.MsgDeInformacao("Valores", "Os itens do pedido são: " + itens);
+
     }
 
     /**
@@ -130,7 +140,9 @@ public class Pedido {
      * @return retorna o valor total calculado
      */
     public double calcularValorTotal() {
-        return this.valorTotalCalculado;
+
+        return valorTotalCalculado;
+
     }
 
 }

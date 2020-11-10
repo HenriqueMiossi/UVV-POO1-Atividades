@@ -31,7 +31,7 @@ public class ValidaCnpj {
         // Converte o i-ésimo caractere do CNPJ em um número:
         // por exemplo, transforma o caractere '0' no inteiro 0
         // (48 eh a posição de '0' na tabela ASCII)
-                num = (int)(CNPJ.charAt(i) - 48);
+                num = CNPJ.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso + 1;
                 if (peso == 10)
@@ -47,7 +47,7 @@ public class ValidaCnpj {
             sm = 0;
             peso = 2;
             for (i=12; i>=0; i--) {
-                num = (int)(CNPJ.charAt(i)- 48);
+                num = CNPJ.charAt(i)- 48;
                 sm = sm + (num * peso);
                 peso = peso + 1;
                 if (peso == 10)
@@ -60,9 +60,7 @@ public class ValidaCnpj {
             else dig14 = (char)((11-r) + 48);
 
             // Verifica se os dígitos calculados conferem com os dígitos informados.
-            if ((dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13)))
-                return(true);
-            else return(false);
+            return (dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13));
         } catch (InputMismatchException erro) {
             return(false);
         }
